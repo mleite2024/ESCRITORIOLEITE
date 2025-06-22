@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mleite</title>
+  <style>
+    /* Estilos básicos para o corpo da página */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Estilo para o logotipo ou título */
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo para o formulário de busca */
+    form {
+      display: flex;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    /* Estilo para o campo de entrada de texto */
+    input {
+      flex: 1;
+      padding: 12px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      border-radius: 4px 0 0 4px;
+    }
+
+    /* Estilo para o botão de busca */
+    button {
+      padding: 0 24px;
+      font-size: 16px;
+      border: none;
+      background: #4285F4;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* Estilo para o botão de busca ao passar o mouse */
+    button:hover {
+      background: #3367D6;
+    }
+
+    /* Estilo para o contêiner dos links de busca */
+    .links-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-wrap: wrap; /* Permite que os links quebrem a linha */
+      gap: 10px; /* Espaço entre os links */
+      justify-content: center; /* Centraliza os links */
+    }
+
+    /* Estilo para cada link de busca individual */
+    .search-link {
+      display: block;
+      padding: 10px 15px;
+      background-color: #e0e0e0;
+      color: #333;
+      text-decoration: none; /* Remove sublinhado padrão */
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+      text-align: center; /* Centraliza o texto dentro do link */
+    }
+
+    /* Estilo para o link de busca ao passar o mouse */
+    .search-link:hover {
+      background-color: #d0d0d0;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">escritorioleite.com</div> <form id="searchForm">
+    <input type="text" id="query" placeholder="Digite sua pesquisa..." required>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div class="links-container" id="linksContainer">
+    </div>
+
+  <script>
+    // Adiciona um "ouvinte" de evento para quando o formulário for enviado
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Impede o comportamento padrão de recarregar a página
+
+      // Pega o valor digitado no campo de busca e o codifica para URL
+      const q = encodeURIComponent(document.getElementById('query').value);
+
+      // Define os mecanismos de busca com seus nomes amigáveis e URLs base
+      const engines = [
+        { name: "Google", url: `https://www.google.com/search?q=${q}` },
+        { name: "Bing", url: `https://www.bing.com/search?q=${q}` },
+        { name: "Yahoo", url: `https://search.yahoo.com/search?p=${q}` },
+        { name: "DuckDuckGo", url: `https://duckduckgo.com/?q=${q}` },
+        { name: "Ecosia", url: `https://www.ecosia.org/search?q=${q}` },
+        { name: "Ask", url: `https://www.ask.com/web?q=${q}` },
+        { name: "AOL", url: `https://search.aol.com/aol/search?q=${q}` },
+        { name: "Gemini", url: `https://gemini.google.com/app?query=${q}` },
+        { name: "ChatGPT", url: `https://chat.openai.com/?q=${q}` }
+      ];
+
+      const container = document.getElementById('linksContainer');
+      container.innerHTML = ''; // Limpa quaisquer links de buscas anteriores
+
+      // Para cada mecanismo de busca, cria um novo link
+      engines.forEach(engine => {
+        const link = document.createElement('a');
+        link.href = engine.url;      // Define o URL do link
+        link.target = '_blank';      // **IMPORTANTE**: Faz com que o link abra em uma nova aba
+        link.textContent = `Buscar no ${engine.name}`; // Texto visível do link
+        link.classList.add('search-link'); // Adiciona a classe para aplicar estilos CSS
+        container.appendChild(link); // Adiciona o link ao contêiner na página
+      });
+    });
+  </script>
+</body>
+</html>
