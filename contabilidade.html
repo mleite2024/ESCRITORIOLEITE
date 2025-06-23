@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escritório Contábil Leite</title>
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --secondary: #f5f5f5;
+      --text: #333;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--secondary);
+      color: var(--text);
+    }
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #1565c0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      display: block;
+    }
+    nav a:hover {
+      background: #0d47a1;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .services, .contact, .about, .blog-preview {
+      margin-bottom: 40px;
+    }
+    footer {
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+    }
+    .button {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .button:hover {
+      background: #0d47a1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Escritório Contábil Leite</h1>
+    <p>Soluções inteligentes para sua empresa</p>
+  </header>
+  <nav>
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#blog">Blog</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section id="servicos" class="services">
+    <h2>Serviços</h2>
+    <ul>
+      <li>Contabilidade Geral</li>
+      <li>Abertura e Legalização de Empresas</li>
+      <li>Folha de Pagamento e Obrigações Trabalhistas</li>
+      <li>Impostos e Apuração de Tributos</li>
+      <li>Consultoria Fiscal e Tributária</li>
+    </ul>
+  </section>
+
+  <section id="sobre" class="about">
+    <h2>Quem Somos</h2>
+    <p>Somos uma equipe contábil com mais de 15 anos de experiência ajudando empresas a prosperar com segurança fiscal e gestão eficiente.</p>
+  </section>
+
+  <section id="blog" class="blog-preview">
+    <h2>Blog</h2>
+    <p>Confira nossas dicas sobre gestão empresarial, impostos e novidades do setor contábil.</p>
+    <a href="#" class="button">Acessar Blog</a>
+  </section>
+
+  <section id="contato" class="contact">
+    <h2>Contato</h2>
+    <p>Telefone: (00) 1234-5678</p>
+    <p>Email: contato@contabilidadeleite.com.br</p>
+    <p>Endereço: Rua Exemplo, 123 - Cidade - UF</p>
+    <a href="https://wa.me/5500000000000" class="button">Fale no WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Escritório Contábil Leite - Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
+
